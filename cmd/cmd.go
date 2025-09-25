@@ -19,6 +19,8 @@ func main() {
 	log := setupLogger(cfg.Env)
 
 	log.Info("starting application", slog.Any("config", cfg))
+
+	application := app.New(log, cfg.Port, cfg.StoragePath)
 }
 
 func setupLogger(env string) *slog.Logger {
